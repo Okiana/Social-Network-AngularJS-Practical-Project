@@ -22,4 +22,5 @@ SocialNetwork.factory('mainData', function ($http, baseServiceUrl) {
             }).error(error);
     };
 
+    return data;
 });

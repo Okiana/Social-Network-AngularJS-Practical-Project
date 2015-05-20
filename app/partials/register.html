@@ -1,54 +1,54 @@
-<form class="form-horizontal">
+<form class="form-horizontal" ng-controller="AuthenticationController" ng-submit="register()">
     <fieldset>
         <legend>Register</legend>
         <div class="form-group">
             <label for="inputUsername" class="col-lg-2 control-label">Username</label>
             <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputUsername" placeholder="Username" required="required">
+                <input type="text" class="form-control" id="inputUsername" placeholder="Username" ng-model="registerData.username">
             </div>
         </div>
         <div class="form-group">
             <label for="inputPassword" class="col-lg-2 control-label">Password</label>
             <div class="col-lg-10">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="registerData.password">
             </div>
         </div>
         <div class="form-group">
             <label for="inputConfirmPassword" class="col-lg-2 control-label">Confirm Password</label>
             <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputConfirmPassword" placeholder="Confirm Password">
+                <input type="text" class="form-control" id="inputConfirmPassword" placeholder="Confirm Password"ng-model="registerData.confirmPassword">
             </div>
         </div>
         <div class="form-group">
             <label for="inputName" class="col-lg-2 control-label">Name</label>
             <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputName" placeholder="Name">
+                <input type="text" class="form-control" id="inputName" placeholder="Name" ng-model="registerData.name">
             </div>
         </div>
         <div class="form-group">
             <label for="inputEmail" class="col-lg-2 control-label">Email</label>
             <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                <input type="text" class="form-control" id="inputEmail" placeholder="Email" ng-model="registerData.email">
             </div>
         </div>
         <div class="form-group">
             <label class="col-lg-2 control-label">Gender</label>
             <div class="col-lg-10">
-                <div class="radio">
+                <div class="radio" >
                     <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadiosMale" value="optionMale" checked="">
+                        <input type="radio" name="optionsRadios" id="optionsRadiosMale" value="Male" ng-model="registerData.gender">
                         Male
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadioFemale" value="optionFemale">
+                        <input type="radio" name="optionsRadios" id="optionsRadioFemale" value="Female" ng-model="registerData.gender">
                         Female
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadiosOther" value="optionOther">
+                        <input type="radio" name="optionsRadios" id="optionsRadiosOther" value="Other" ng-model="registerData.gender">
                         Other
                     </label>
                 </div>
@@ -57,7 +57,7 @@
 
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
-                <button type="reset" class="btn btn-default">Cancel</button>
+                <a href="/#/" class="btn btn-default">Cancel</a>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
