@@ -1,0 +1,86 @@
+<form class="form-horizontal" ng-controller="EditUserController" ng-submit="editUser()">
+    <fieldset>
+        <legend>Register</legend>
+        <div class="col-lg-6 picture-upload">
+            <div class="form-group">
+                <img class="thumbnail picture-preview" id="profilePicturePreview" src="{{meData.profileImageData}}"/>
+            </div>
+            <div class="form-group">
+                <p class="picture-name"></p>
+                <input type="file" id="picture" class="btn btn-md btn-info" ng-click="uploadProfilePicture()" ng-model="editUserData.profileImageData"/>
+                <p>Size limit: 10MB</p>
+            </div>
+        </div>
+        <div class="col-lg-6 picture-upload">
+            <div class="form-group">
+                <img class="thumbnail picture-preview" id="coverPicturePreview" src="{{meData.coverImageData}}"/>
+            </div>
+            <div class="form-group">
+                <p class="picture-name"></p>
+                <input type="file" id="cover-picture" class="btn btn-md btn-info" ng-click="uploadCoverPicture()" ng-model="editUserData.coverImageData"/>
+                <p>Size limit: 10MB</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputUsername" class="col-lg-2 control-label">Username</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputUsername" placeholder="Username" ng-model="editUserData.username" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+            <div class="col-lg-10">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="editUserData.password"required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputConfirmPassword" class="col-lg-2 control-label">Confirm Password</label>
+            <div class="col-lg-10">
+                <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm Password"ng-model="editUserData.confirmPassword"required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputName" class="col-lg-2 control-label">Name</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputName" placeholder="Name" ng-model="editUserData.name"required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputEmail" placeholder="Email" ng-model="editUserData.email"required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Gender</label>
+            <div class="col-lg-10">
+                <div class="radio" >
+                    <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadiosMale" value="Male" ng-model="editUserData.gender"required>
+                        Male
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadioFemale" value="Female" ng-model="editUserData.gender"required>
+                        Female
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadiosOther" value="Other" ng-model="editUserData.gender"required>
+                        Other
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <a href="#/welcome" class="btn btn-default">Cancel</a>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </fieldset>
+</form>

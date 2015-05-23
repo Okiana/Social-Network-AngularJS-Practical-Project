@@ -21,5 +21,9 @@ SocialNetwork.config(function ($routeProvider) {
         controller: 'UserWallController'
 
         })
+        .when('/:username/edit',{
+            templateUrl: 'partials/user-edit-profile.html',
+            controller: 'EditUserController'
+        })
         .otherwise('/welcome');
 });
