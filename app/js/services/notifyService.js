@@ -1,14 +1,18 @@
+'use strict';
+
 SocialNetwork.factory('notifyService',
     function () {
         return {
             showInfo: function(msg) {
                 noty({
                         text: msg,
-                        type: 'success',
+                        type: 'info',
                         layout: 'topCenter',
-                        timeout: 1000});
+                        timeout: 1000}
+                );
             },
             showError: function(msg, serverError) {
+                // Collect errors to display from the server response
                 var errors = [];
                 if (serverError && serverError.error_description) {
                     errors.push(serverError.error_description);
@@ -25,7 +29,7 @@ SocialNetwork.factory('notifyService',
                     }
                 }
                 if (errors.length > 0) {
-                    msg = msg + "<br>" + errors.join("<br>");
+                    msg = msg + ":<br>" + errors.join("<br>");
                 }
                 noty({
                         text: msg,
@@ -35,5 +39,5 @@ SocialNetwork.factory('notifyService',
                 );
             }
         }
-
-    });
+    }
+);

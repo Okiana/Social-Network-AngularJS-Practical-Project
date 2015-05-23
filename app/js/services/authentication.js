@@ -1,64 +1,72 @@
-SocialNetwork.factory('authentication', function ($http, baseServiceUrl) {
-    var service = {};
+SocialNetwork.factory('authentication',
+    function ($http, baseServiceUrl) {
 
-    var serviceUrl = baseServiceUrl + '/user';
+        var serviceUrl = baseServiceUrl + '/users';
 
-    service.Login = function (loginData, success, error) {
-        $http.post(serviceUrl + '/Login', loginData)
-            .success(function (data, status, headers, config) {
-                success(data);
-            }).error(error);
-    };
-    service.Register = function (registerData, success, error) {
-        $http.post(serviceUrl + '/Register', registerData)
-            .success(function (data, status, headers, config) {
-                success(data);
-            }).error(error);
-    };
-    service.EditUserProfile = function (editUserData, success, error) {
-        $http.put(serviceUrl + '/me', editUserData, {headers: this.GetHeaders()})
-            .success(function (data, status, headers, config) {
-                success(data)
-            }).error(error);
-    };
-    service.ChangePassword = function (passwordData, success, error) {
-        $http.put(serviceUrl + '/me/ChangePassword', passwordData, {headers: this.GetHeaders()})
-            .success(function (data, status, headers, config) {
-                success()
-            }).error(error);
-    };
-    service.GetUserProfile = function (success, error) {
-        $http.get(serviceUrl + '/me', {headers: this.GetHeaders()})
-            .success(function (data, status, headers, config) {
-                success(data)
-            }).error(error);
-    };
-    service.SetCredentials = function (serverData) {
-        localStorage['accessToken'] = serverData.access_token;
-        localStorage['username'] = serverData.username;
-        };
-
-
-
-    service.GetUsername = function () {
-        return localStorage['username'];
-    };
-
-    service.ClearCredentials = function () {
-        localStorage.clear();
-    };
-
-    service.GetHeaders = function() {
         return {
-            SocialNetwork: "Bearer " + localStorage['accessToken']
-        };
-    };
+            login: function (loginData,success, error) {
+                var request = {
+                    method: 'POST',
+                    url: serviceUrl + '/login',
+                    data: loginData
+                };
+                $http(request).success(function (data) {
+                    sessionStorage['currentUser'] = JSON.stringify(data);
+                    success(data);
+                }).error(error);
+            },
 
-    service.isLoggedIn = function () {
-        return localStorage['accessToken'];
-    };
+            register: function (registerData, success, error) {
+                var request = {
+                    method: 'POST',
+                    url: serviceUrl + '/register',
+                    data: registerData
+                };
+                $http(request).success(function (data) {
+                    sessionStorage['currentUser'] = JSON.stringify(data);
+                    success(data);
+                }).error(error);
+            },
+
+            logout: function () {
+                var request = {
+                    method: 'POST',
+                    url: serviceUrl + '/logout'
+                   };
+                $http(request).success(function (data) {
+                    success(data);
+                }).error(error);
+            },
+
+            isLoggedIn: function () {
+                return localStorage['accessToken'];
+            },
+            getCurrentUser : function() {
+                var userObject = sessionStorage['currentUser'];
+                if (userObject) {
+                    return JSON.parse(sessionStorage['currentUser']);
+                }
+            },
+            getAuthHeaders : function() {
+                var headers = {};
+                var currentUser = this.getCurrentUser();
+                if (currentUser) {
+                    headers['Authorization'] = 'Bearer ' + currentUser.access_token;
+                }
+                return headers;
+            },
+            getMeData : function (success, error) {
+                var request = {
+                    method: 'GET',
+                    url: serviceUrl + '/me'
+                    };
+                $http(request).success(function (data) {
+                    success(data);
+                }).error(error);
+            }
 
 
+        }
+    });
 
-    return service;
-});
+

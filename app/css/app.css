@@ -1,0 +1,11 @@
+.btn-welcome {
+	display: block;
+	padding-left: inherit;
+}
+
+.pesho:hover {
+	color:blue 
+}
+.even_row {
+	background: red;
+}
