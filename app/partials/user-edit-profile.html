@@ -2,22 +2,21 @@
     <fieldset>
         <legend>Register</legend>
         <div class="col-lg-6 picture-upload">
-            <div class="form-group">
-                <img class="thumbnail picture-preview" id="profilePicturePreview" src="{{meData.profileImageData}}"/>
-            </div>
+            <label for="profilePicturePreview" class="col-lg-2 control-label">Add Profile Picture</label>
             <div class="form-group">
                 <p class="picture-name"></p>
-                <input type="file" id="picture" class="btn btn-md btn-info" ng-click="uploadProfilePicture()" ng-model="editUserData.profileImageData"/>
+                <input type="file" id="profilePicturePreview" class="btn btn-sm btn-primary" ng-click="uploadProfilePicture()" ng-model="editUserData.profileImageData"/>
                 <p>Size limit: 10MB</p>
             </div>
         </div>
         <div class="col-lg-6 picture-upload">
+            <label for="coverPicturePreview" class="col-lg-2 control-label">Add Cover Picture</label>
             <div class="form-group">
                 <img class="thumbnail picture-preview" id="coverPicturePreview" src="{{meData.coverImageData}}"/>
             </div>
             <div class="form-group">
                 <p class="picture-name"></p>
-                <input type="file" id="cover-picture" class="btn btn-md btn-info" ng-click="uploadCoverPicture()" ng-model="editUserData.coverImageData"/>
+                <input type="file" id="cover-picture" class="btn btn-sm btn-primary" ng-click="uploadCoverPicture()" ng-model="editUserData.coverImageData"/>
                 <p>Size limit: 10MB</p>
             </div>
         </div>
@@ -26,18 +25,6 @@
             <label for="inputUsername" class="col-lg-2 control-label">Username</label>
             <div class="col-lg-10">
                 <input type="text" class="form-control" id="inputUsername" placeholder="Username" ng-model="editUserData.username" required>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-            <div class="col-lg-10">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="editUserData.password"required>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="inputConfirmPassword" class="col-lg-2 control-label">Confirm Password</label>
-            <div class="col-lg-10">
-                <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm Password"ng-model="editUserData.confirmPassword"required>
             </div>
         </div>
         <div class="form-group">
@@ -57,19 +44,19 @@
             <div class="col-lg-10">
                 <div class="radio" >
                     <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadiosMale" value="Male" ng-model="editUserData.gender"required>
+                        <input type="radio" name="optionsRadios" id="optionsRadiosMale" value="Male" ng-model="editUserData.gender" required>
                         Male
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadioFemale" value="Female" ng-model="editUserData.gender"required>
+                        <input type="radio" name="optionsRadios" id="optionsRadioFemale" value="Female" ng-model="editUserData.gender" required>
                         Female
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadiosOther" value="Other" ng-model="editUserData.gender"required>
+                        <input type="radio" name="optionsRadios" id="optionsRadiosOther" value="Other" ng-model="editUserData.gender" required>
                         Other
                     </label>
                 </div>
@@ -78,7 +65,7 @@
 
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
-                <a href="#/welcome" class="btn btn-default">Cancel</a>
+                <a href="#/users/:username" class="btn btn-default">Cancel</a>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>

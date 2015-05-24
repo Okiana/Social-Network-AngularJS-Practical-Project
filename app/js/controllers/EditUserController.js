@@ -1,10 +1,10 @@
 'use strict';
 
 SocialNetwork.controller('EditUserController',
-    function ($scope, $rootScope, $location, authentication, notifyService){
+    function ($scope, $rootScope, $location, userService, notifyService){
 
     $scope.editUser = function() {
-        authentication.editUser($scope.editUserData,
+        userService.editUserProfile($scope.editUserData,
             function success() {
                 notifyService.showInfo("Profile edited successfully");
                 $location.path("/users/"+ sessionStorage['username']);
@@ -14,4 +14,20 @@ SocialNetwork.controller('EditUserController',
             }
         );
     };
+
+    $scope.editPassword = function() {
+        userService.editUserPassword($scope.editUserPasswordData,
+            function success() {
+                notifyService.showInfo("Password edited successfully");
+                $location.path("/users/"+ sessionStorage['username']);
+            },
+            function error(err) {
+                notifyService.showError("Cannot edit password ", err);
+            }
+        );
+    };
+
 });
+
+
+

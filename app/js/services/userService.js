@@ -1,7 +1,8 @@
 SocialNetwork.factory('userService',
     function ($http, baseServiceUrl, authService, authentication) {
         return {
-            getUserProfile: function (success, error) {
+
+            getMyProfile: function (success, error) {
                 var request = {
                     method: 'GET',
                     url: baseServiceUrl + '/me',
@@ -9,19 +10,19 @@ SocialNetwork.factory('userService',
                 };
                 $http(request).success(success).error(error);
             },
-            changeUserPassword: function (data, success, error) {
+            editUserProfile: function (data ,success, error) {
                 var request = {
                     method: 'PUT',
-                    url: baseServiceUrl + '/me/ChangePassword',
+                    url: baseServiceUrl + '/me',
                     headers: authentication.getAuthHeaders(),
                     data: data
                 };
                 $http(request).success(success).error(error);
             },
-            editUserProfile: function (data ,success, error) {
+            editUserPassword: function (data ,success, error) {
                 var request = {
                     method: 'PUT',
-                    url: baseServiceUrl + '/me',
+                    url: baseServiceUrl + 'me/changepassword',
                     headers: authentication.getAuthHeaders(),
                     data: data
                 };
