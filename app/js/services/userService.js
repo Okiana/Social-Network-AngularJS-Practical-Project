@@ -27,6 +27,57 @@ SocialNetwork.factory('userService',
                     data: data
                 };
                 $http(request).success(success).error(error);
+            },
+            getFrDetailFriendsList: function (headers, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/' + $routeParams.username + '/friends',
+                    headers: authentication.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+            getFrFriendsPreview : function (headers, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/' + $routeParams.username + '/friends/preview',
+                    headers: authentication.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+            getMyFriendsPreview : function (headers, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + 'me/friends/preview',
+                    headers: authentication.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+            getMyFriendsList  : function (headers, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl  + '/me/friends',
+                    headers: authentication.getAuthHeaders()
+                 };
+                $http(request).success(success).error(error);
+            },
+            getMyFriendsRequest  : function (headers, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl  + '/me/requests',
+                    headers: authentication.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+            sendFriendRequest  : function (headers, success, error) {
+                var request = {
+                    method: 'POST',
+                    url: baseServiceUrl  + '/me/requests',
+                    headers: authentication.getAuthHeaders(),
+                    data: data
+                };
+                $http(request).success(success).error(error);
             }
 
     }});
+
+

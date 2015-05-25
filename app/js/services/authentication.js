@@ -54,18 +54,7 @@ SocialNetwork.factory('authentication',
                     headers['Authorization'] = 'Bearer ' + currentUser.access_token;
                 }
                 return headers;
-            },
-            getMeData : function (success, error) {
-                var request = {
-                    method: 'GET',
-                    url: serviceUrl + '/me'
-                    };
-                $http(request).success(function (data) {
-                    success(data);
-                }).error(error);
             }
-
-
         }
     });
 

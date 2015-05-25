@@ -1,4 +1,4 @@
-SocialNetwork.factory('mainData', function ($http, baseServiceUrl) {
+SocialNetwork.factory('postService', function ($http, baseServiceUrl) {
     var data = {};
 
     data.params = {};
@@ -9,18 +9,7 @@ SocialNetwork.factory('mainData', function ($http, baseServiceUrl) {
                 success(data)
             }).error(error);
     };
-    data.getUserSixFriends = function (succes, error) {
-        $http.get(baseServiceUrl + '/me/friends/preview', {params: this.params})
-            .success(function (data) {
-                success(data)
-            }).error(error);
-    };
-    data.getPendingFriendship = function (succes, error) {
-        $http.get(baseServiceUrl + '/me/friends/preview', {params: this.params})
-            .success(function (data) {
-                success(data)
-            }).error(error);
-    };
+
 
     return data;
 });

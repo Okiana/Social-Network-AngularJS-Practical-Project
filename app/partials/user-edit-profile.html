@@ -1,7 +1,9 @@
-<form class="form-horizontal" ng-controller="EditUserController" ng-submit="editUser()">
+
+<form class="form-horizontal" ng-controller="EditUserController" ng-submit="editUserProfile()">
     <fieldset>
-        <legend>Register</legend>
-        <div class="col-lg-6 picture-upload">
+        <legend>Edit User Profile</legend>
+
+       <!--<div class="col-lg-6 picture-upload">
             <label for="profilePicturePreview" class="col-lg-2 control-label">Add Profile Picture</label>
             <div class="form-group">
                 <p class="picture-name"></p>
@@ -13,13 +15,7 @@
             <label for="coverPicturePreview" class="col-lg-2 control-label">Add Cover Picture</label>
             <div class="form-group">
                 <img class="thumbnail picture-preview" id="coverPicturePreview" src="{{meData.coverImageData}}"/>
-            </div>
-            <div class="form-group">
-                <p class="picture-name"></p>
-                <input type="file" id="cover-picture" class="btn btn-sm btn-primary" ng-click="uploadCoverPicture()" ng-model="editUserData.coverImageData"/>
-                <p>Size limit: 10MB</p>
-            </div>
-        </div>
+            </div>-->
 
         <div class="form-group">
             <label for="inputUsername" class="col-lg-2 control-label">Username</label>
@@ -70,4 +66,4 @@
             </div>
         </div>
     </fieldset>
-</form>
+</form>-

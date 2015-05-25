@@ -1,4 +1,4 @@
-var SocialNetwork = angular.module("SocialNetwork", ['ngResource','ngRoute']);
+var SocialNetwork = angular.module("SocialNetwork", ['ngResource','ngRoute','ngFileUpload']);
 
 SocialNetwork.constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net/api');
 
@@ -21,8 +21,12 @@ SocialNetwork.config(function ($routeProvider) {
         controller: 'UserWallController'
 
         })
-        .when('/:username/edit',{
+        .when('/profile',{
             templateUrl: 'partials/user-edit-profile.html',
+            controller: 'EditUserController'
+        })
+        .when('/profile/password',{
+            templateUrl: 'partials/user-edit-password.html',
             controller: 'EditUserController'
         })
         .otherwise('/welcome');
