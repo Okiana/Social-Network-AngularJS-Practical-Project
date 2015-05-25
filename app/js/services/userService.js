@@ -28,10 +28,19 @@ SocialNetwork.factory('userService',
                 };
                 $http(request).success(success).error(error);
             },
+            getNewsFeed: function (startPostId, pageSize,success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/me/feed?PageSize='+ pageSize,
+                    headers: authentication.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
             getFrDetailFriendsList: function (headers, success, error) {
                 var request = {
                     method: 'GET',
-                    url: baseServiceUrl + '/' + $routeParams.username + '/friends',
+                    url: baseServiceUrl + '/users/' + $routeParams.username + '/friends',
                     headers: authentication.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);
@@ -39,7 +48,7 @@ SocialNetwork.factory('userService',
             getFrFriendsPreview : function (headers, success, error) {
                 var request = {
                     method: 'GET',
-                    url: baseServiceUrl + '/' + $routeParams.username + '/friends/preview',
+                    url: baseServiceUrl + '/users/' + $routeParams.username + '/friends/preview',
                     headers: authentication.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);
