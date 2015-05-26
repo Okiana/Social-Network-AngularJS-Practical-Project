@@ -3,6 +3,7 @@ SocialNetwork.factory('authentication',
 
         var serviceUrl = baseServiceUrl + '/users';
 
+
         return {
             login: function (loginData,success, error) {
                 var request = {
@@ -38,8 +39,9 @@ SocialNetwork.factory('authentication',
                 }).error(error);
             },
 
-            isLoggedIn: function () {
-                return localStorage['accessToken'];
+            SetCredentials: function (serverData) {
+                localStorage['accessToken'] = serverData.access_token;
+                sessionStorage['username'] = serverData.userName;
             },
             getCurrentUser : function() {
                 var userObject = sessionStorage['currentUser'];
@@ -54,7 +56,13 @@ SocialNetwork.factory('authentication',
                     headers['Authorization'] = 'Bearer ' + currentUser.access_token;
                 }
                 return headers;
+            },
+
+            deleteData: function (data) {
+                 data = "";
             }
+
+
         }
     });
 

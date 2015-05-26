@@ -18,7 +18,7 @@ SocialNetwork.config(function ($routeProvider) {
         })
         .when('/users/:username', {
         templateUrl: 'partials/user-wall.html',
-        controller: 'UserWallController'
+        controller: 'GetNewsFeedController'
 
         })
         .when('/profile',{

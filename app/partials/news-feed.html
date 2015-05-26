@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<div class="jumbotron">
+    <article class="post well" ng-repeat="item in news">
+        <header class="post-header">
+            <div class="form-group pull-right" style="margin-right: 30px;" ng-if="item.author.username === username">
+                <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></button>
+                <button type="button" class="btn btn-danger" ng-click="deletePost(item.id)"><span class="glyphicon glyphicon-remove"></span></button>
+            </div>
+            <div class="post-image">
+                <img class="mini-thumbnail" ng-src="{{item.author.profileImageData}}"/>
+            </div>
+            <div class="post-info">
+                <p><a href="#/{{item.author.username}}" id="{{item.author.username}}" class="profile-link" ng-mouseover="getUserPreviewData(item.author.username, $event);" ng-mouseleave="hoverLeave();">{{item.author.name}}</a>
+                    <span ng-if="item.wallOwner.username !== item.author.username"> posted on the wall of <a href="#/{{item.wallOwner.username}}" id="{{item.wallOwner.username}}" ng-mouseover="getUserPreviewData(item.wallOwner.username, $event);" ng-mouseleave="hoverLeave();">{{item.wallOwner.name}}</a></span>
+                    <span ng-if="item.wallOwner.username === item.author.username"> posted on their wall</span></p>
+            </div>
+        </header>
 
-</body>
-</html>
+    </article>
+</div>

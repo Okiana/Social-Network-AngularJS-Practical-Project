@@ -3,11 +3,16 @@
 SocialNetwork.controller('LoginController',
     function ($scope, $rootScope, $location, authentication, notifyService) {
       /*  $rootScope.pageTitle = "Login";*/
+    var ClearLogin = function () {
+        $scope.loginData = ""
+    };
 
-        $scope.login = function() {
+       $scope.login = function() {
             authentication.login($scope.loginData,
-                function success() {
+                function success(serverData) {
                     notifyService.showInfo("Login successful");
+                    authentication.SetCredentials(serverData);
+                    ClearLogin();
                     $location.path("/users/"+ sessionStorage['username']);
                 },
                 function error(err) {

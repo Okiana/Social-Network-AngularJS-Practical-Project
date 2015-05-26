@@ -19,7 +19,7 @@ SocialNetwork.factory('postService', function ($http, baseServiceUrl, authServic
             };
             $http(request).success(success).error(error);
         },
-        editPost: function (id, editPostData, success, error) {
+        editPost: function (id,editPostData, success, error) {
             var request = {
                 method: 'PUT',
                 url: serviceUrl + id,
@@ -28,7 +28,7 @@ SocialNetwork.factory('postService', function ($http, baseServiceUrl, authServic
             };
             $http(request).success(success).error(error);
         },
-        getPostById: function (id, editPostData, success, error) {
+        getPostById: function (id, editPostByIdData, success, error) {
             var request = {
                 method: 'GET',
                 url: serviceUrl + id,

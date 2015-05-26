@@ -1,10 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<!--
+<section class="friends-screen" ng-controller="userController" ng-init="getFriendsList()">
+    <div ng-controller="authenticationController" ng-init="getUserData()">
+        <h2>
+            <span class="glyphicon glyphicon-list-alt"></span>
+            {{userData.name}} - Friends({{friends.length}} total)
+        </h2>
+        <form id="search-friend-form" role="search">
+            <div class="input-group">
+                <input type="text" id="search-friend-input" class="form-control" ng-model="filterBySearch" placeholder="Search...">
+          <span class="input-group-btn">
+            <button id="search-friend" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+            </div>
+        </form>
 
-</body>
-</html>
+        <div class="friends" ng-repeat="friend in friends | filter:{ name: filterBySearch}">
+            <img ng-src="{{friend.profileImageData}}" class="user-img-preview">
+            <div><a href="#/users/{{friend.username}}"
+                    ng-mouseover="displayHoverBox(friend.username)"
+                    popover-template="'templates/partial/hover-box.html'"
+                    popover-placement="right"
+                    popover-trigger="mouseenter"
+                    popover-animation="true">{{friend.name}}</a>
+            </div>
+        </div>
+    </div>
+</section>-->
